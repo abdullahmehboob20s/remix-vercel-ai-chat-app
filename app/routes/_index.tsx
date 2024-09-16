@@ -45,9 +45,6 @@ function Index() {
     const response = await fetch("/api/chat", {
       method: "POST",
       body: JSON.stringify({ messages }),
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
     });
 
     if (!response) return;
