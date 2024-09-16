@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply bg-white dark:bg-gray-950 text-black dark:text-white;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+
+  /* Headings */
+  .markdown h1 {
+    @apply text-4xl font-bold mb-4;
+  }
+
+  .markdown h2 {
+    @apply text-3xl font-semibold mb-3;
+  }
+
+  .markdown h3 {
+    @apply text-2xl font-semibold mb-2;
+  }
+
+  .markdown h4 {
+    @apply text-xl font-semibold mb-2;
+  }
+
+  /* Paragraphs */
+  .markdown p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  /* Links */
+  .markdown a {
+    @apply text-blue-600 dark:text-blue-400 underline;
+  }
+
+  .markdown a:hover {
+    @apply text-blue-800 dark:text-blue-300;
+  }
+
+  /* Blockquotes */
+  .markdown blockquote {
+    @apply border-l-4 border-gray-400 dark:border-gray-600 pl-4 italic text-gray-600 dark:text-gray-300 mb-4;
+  }
+
+  /* Lists */
+  .markdown ul {
+    @apply list-disc ml-6 mb-4;
+  }
+
+  .markdown ol {
+    @apply list-decimal ml-6 mb-4;
+  }
+
+  /* List Items */
+  .markdown li {
+    @apply mb-1;
+  }
+
+  /* Code */
+  .markdown code {
+    @apply bg-gray-200 dark:bg-gray-800 text-red-500 px-1 py-0.5 rounded;
+  }
+
+  .markdown pre {
+    @apply bg-gray-900 dark:bg-gray-700 text-white p-4 rounded-md overflow-x-auto mb-4;
+  }
+
+  /* Tables */
+  .markdown table {
+    @apply table-auto w-full text-left border-collapse;
+  }
+
+  .markdown th {
+    @apply bg-gray-200 dark:bg-gray-800 font-semibold p-2 border border-gray-300 dark:border-gray-600;
+  }
+
+  .markdown td {
+    @apply p-2 border border-gray-300 dark:border-gray-600;
+  }
+}
