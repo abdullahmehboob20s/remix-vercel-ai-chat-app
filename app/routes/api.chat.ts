@@ -9,5 +9,9 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     messages: (await request.json()).messages,
   });
 
-  return new Response(result.textStream);
+  return new Response(result.textStream, {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+  });
 };
