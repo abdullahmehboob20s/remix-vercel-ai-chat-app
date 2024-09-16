@@ -4,6 +4,8 @@ import { streamText } from "ai";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   // Handle preflight OPTIONS request
+  const _a = (await request.json()).messages
+  
   if (request.method === "OPTIONS") {
     return new Response(null, {
       headers: {
@@ -14,10 +16,13 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     });
   }
 
+  console.log("_a = ", _a);
+  
+
   const result = await streamText({
     model: openai("gpt-4-turbo"),
     system: `You are a helpful, respectful and honest assistant.`,
-    messages: (await request.json()).messages,
+    messages: _a,
   });
 
   return new Response(result.textStream, {

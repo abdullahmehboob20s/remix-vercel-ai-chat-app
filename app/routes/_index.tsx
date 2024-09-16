@@ -38,13 +38,17 @@ function Index() {
     event.preventDefault();
     setIsAiWriting(true);
 
+    console.log("question = ", question);
+
     const messageNew: CoreMessage = { role: "user", content: question };
+    const _msgs = [...messages, messageNew];
+
     addMessage(messageNew);
     resetInput();
 
     const response = await fetch("/api/chat", {
       method: "POST",
-      body: JSON.stringify({ messages }),
+      body: JSON.stringify({ messages: _msgs }),
     });
 
     if (!response) return;
