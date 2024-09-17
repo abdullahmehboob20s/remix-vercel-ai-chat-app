@@ -2,6 +2,7 @@ import { CoreMessage } from "ai";
 import { marked } from "marked";
 import { useRef, useState } from "react";
 import { processChatResponse } from "~/hooks/chat";
+
 const ChatMessages = ({ messages }: { messages: CoreMessage[] }) => {
   return (
     <ul className="space-y-4 list-none pl-0">
@@ -70,7 +71,7 @@ function Index() {
 
   return (
     <main className="absolute top-0 left-0 w-full h-screen flex flex-col">
-      <header className="border-b h-16 border-white/20 flex-shrink-0"></header>
+      <header className="border-b h-16 border-white/20 flex-shrink-0 flex items-center px-6"></header>
 
       <div
         ref={mainElementRef}
