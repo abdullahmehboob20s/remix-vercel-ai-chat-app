@@ -52,6 +52,9 @@ function Index() {
       response = await fetch("/api/chat", {
         method: "POST",
         body: JSON.stringify({ messages: _msgs }),
+        headers: {
+          "Content-Type": "text/event-stream",
+        },
       });
     } catch (error) {
       console.log("error = ", error);
