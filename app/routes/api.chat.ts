@@ -17,8 +17,6 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       });
     }
 
-    console.log("_a = ", _a);
-
     const result = await streamText({
       model: openai("gpt-4-turbo"),
       system: `You are a helpful, respectful and honest assistant.`,
@@ -28,9 +26,10 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     return new Response(result.textStream, {
       headers: {
         "Access-Control-Allow-Origin": "*",
+        "Content-Type": "text/event-stream",
       },
     });
   } catch (error) {
-    return json({ error: error });
+    return json({ error: error }, { status: 400 });
   }
 };
