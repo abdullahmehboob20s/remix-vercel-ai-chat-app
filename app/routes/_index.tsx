@@ -47,10 +47,15 @@ function Index() {
     addMessage(messageNew);
     resetInput();
 
-    const response = await fetch("/api/chat", {
-      method: "POST",
-      body: JSON.stringify({ messages: _msgs }),
-    });
+    let response;
+    try {
+      response = await fetch("/api/chat", {
+        method: "POST",
+        body: JSON.stringify({ messages: _msgs }),
+      });
+    } catch (error) {
+      console.log("error = ", error);
+    }
 
     if (!response) return;
 

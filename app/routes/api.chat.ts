@@ -30,6 +30,9 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       },
     });
   } catch (error) {
-    return json({ error: error }, { status: 400 });
+    return json(
+      { error: error, api: process.env.OPENAI_API_KEY },
+      { status: 400 }
+    );
   }
 };
