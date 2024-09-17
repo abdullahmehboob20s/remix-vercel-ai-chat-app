@@ -59,6 +59,6 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     });
   } catch (error) {
     // Catching and returning the error in a JSON format
-    return json({ error: error.message });
+    return json({ error: error });
   }
 };
